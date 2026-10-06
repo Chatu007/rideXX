@@ -1,0 +1,1893 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050505;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+
+
+/* =========================
+   LOADER
+========================= */
+
+#loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: #050505;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.loader-bike {
+    font-size: 65px;
+    animation: loaderBike 1s infinite alternate;
+}
+
+#loader h2 {
+    font-family: "Orbitron";
+    font-size: 35px;
+    margin-top: 10px;
+    letter-spacing: 8px;
+}
+
+#loader p {
+    font-size: 11px;
+    letter-spacing: 5px;
+    opacity: .6;
+}
+
+.loader-line {
+    width: 220px;
+    height: 3px;
+    background: #222;
+    margin: 20px;
+    overflow: hidden;
+}
+
+.loader-line span {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: #ff2a00;
+    transform: translateX(-100%);
+    animation: loading 2s linear forwards;
+}
+
+@keyframes loading {
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes loaderBike {
+    from {
+        transform: translateX(-20px) rotate(-3deg);
+    }
+
+    to {
+        transform: translateX(20px) rotate(3deg);
+    }
+}
+
+
+
+/* =========================
+   CURSOR
+========================= */
+
+.cursor {
+    width: 8px;
+    height: 8px;
+    position: fixed;
+    background: #ff3b00;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.cursor-follower {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #ff3b00;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform .15s ease;
+}
+
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 25px 7%;
+
+    background: rgba(0, 0, 0, .25);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+.logo {
+    font-family: "Orbitron";
+    font-weight: 900;
+    font-size: 28px;
+    letter-spacing: 3px;
+}
+
+.logo span,
+.footer-logo span {
+    color: #ff3b00;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar nav a {
+    font-size: 12px;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.navbar nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: -8px;
+    background: #ff3b00;
+    transition: .3s;
+}
+
+.navbar nav a:hover::after {
+    width: 100%;
+}
+
+.menu-btn {
+    display: none;
+    border: 0;
+    background: none;
+    color: white;
+    font-size: 25px;
+}
+
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 70% 40%, rgba(255,50,0,.18), transparent 30%),
+        linear-gradient(180deg,#070707,#120a07 70%,#030303);
+}
+
+.hero-grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+
+    background-size: 70px 70px;
+
+    transform: perspective(500px) rotateX(60deg) scale(2);
+
+    transform-origin: bottom;
+    animation: gridMove 5s linear infinite;
+}
+
+@keyframes gridMove {
+
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 70px;
+    }
+}
+
+.stars {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(circle, white 1px, transparent 1px);
+
+    background-size: 100px 100px;
+
+    opacity: .2;
+}
+
+
+
+.hero-content {
+    position: relative;
+    z-index: 20;
+
+    padding: 190px 7% 0;
+
+    max-width: 750px;
+}
+
+.hero-small {
+    color: #ff4a16;
+    letter-spacing: 5px;
+    font-size: 11px;
+    margin-bottom: 20px;
+
+    animation: heroText 1s .3s both;
+}
+
+.hero h1 {
+    font-family: "Orbitron";
+    font-size: clamp(55px, 9vw, 130px);
+    line-height: .85;
+    letter-spacing: -5px;
+
+    animation: heroText 1s .5s both;
+}
+
+.hero h1 span {
+    display: block;
+    color: transparent;
+
+    -webkit-text-stroke: 2px white;
+
+    animation: strokeGlow 2s infinite alternate;
+}
+
+@keyframes strokeGlow {
+
+    from {
+        text-shadow: none;
+    }
+
+    to {
+        text-shadow: 0 0 30px rgba(255,50,0,.4);
+    }
+}
+
+.hero-description {
+    max-width: 500px;
+    margin-top: 35px;
+
+    color: #aaa;
+    line-height: 1.8;
+
+    animation: heroText 1s .7s both;
+}
+
+@keyframes heroText {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 15px 28px;
+
+    border: 1px solid #ff3b00;
+
+    font-family: "Orbitron";
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.primary-btn {
+    background: #ff3b00;
+    color: white;
+}
+
+.primary-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(255,60,0,.35);
+}
+
+.outline-btn {
+    background: transparent;
+}
+
+.outline-btn:hover {
+    background: #ff3b00;
+    transform: translateY(-5px);
+}
+
+
+
+/* =========================
+   RIDING SCENE
+========================= */
+
+.ride-scene {
+    position: absolute;
+    width: 100%;
+    height: 55%;
+
+    bottom: 0;
+    left: 0;
+
+    perspective: 800px;
+}
+
+.moon {
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50%;
+
+    background: #ddd;
+
+    right: 15%;
+    top: 10%;
+
+    box-shadow:
+        0 0 50px rgba(255,255,255,.3);
+
+    animation: moonFloat 5s infinite alternate;
+}
+
+@keyframes moonFloat {
+
+    to {
+        transform: translateY(-15px);
+    }
+}
+
+
+
+/* MOUNTAINS */
+
+.mountains {
+    position: absolute;
+    bottom: 100px;
+
+    width: 0;
+    height: 0;
+
+    border-left: 300px solid transparent;
+    border-right: 300px solid transparent;
+    border-bottom: 250px solid #111;
+
+    opacity: .8;
+}
+
+.mountain-one {
+    left: 10%;
+}
+
+.mountain-two {
+    right: 5%;
+    transform: scale(1.4);
+    opacity: .5;
+}
+
+
+
+/* ROAD */
+
+.road {
+    position: absolute;
+
+    bottom: 0;
+    left: -10%;
+
+    width: 120%;
+    height: 180px;
+
+    background: #090909;
+
+    transform: perspective(500px) rotateX(55deg);
+
+    border-top: 2px solid #222;
+}
+
+.road-lines {
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+    gap: 100px;
+
+    animation: roadMove .7s linear infinite;
+}
+
+.road-lines span {
+    width: 130px;
+    height: 5px;
+    background: #ddd;
+
+    box-shadow: 0 0 15px white;
+}
+
+@keyframes roadMove {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-230px);
+    }
+}
+
+
+
+/* =========================
+   BIKE + RIDER
+========================= */
+
+.rider-bike {
+
+    position: absolute;
+
+    left: -450px;
+
+    bottom: 120px;
+
+    width: 430px;
+    height: 280px;
+
+    z-index: 10;
+
+    animation: rideAcross 7s linear infinite;
+
+    filter:
+        drop-shadow(0 15px 20px rgba(0,0,0,.7));
+}
+
+@keyframes rideAcross {
+
+    0% {
+        left: -450px;
+        transform: rotate(0);
+    }
+
+    45% {
+        transform: rotate(-2deg);
+    }
+
+    50% {
+        transform: rotate(1deg) scale(1.04);
+    }
+
+    100% {
+        left: 110%;
+        transform: rotate(0);
+    }
+}
+
+
+
+/* RIDER */
+
+.rider {
+    position: absolute;
+
+    width: 130px;
+    height: 160px;
+
+    left: 140px;
+    top: 0;
+
+    z-index: 3;
+
+    transform: rotate(-10deg);
+}
+
+.helmet {
+    width: 45px;
+    height: 45px;
+
+    background: #111;
+
+    border: 3px solid #777;
+
+    border-radius: 50%;
+
+    position: absolute;
+    left: 45px;
+    top: 0;
+
+    box-shadow: 0 0 15px #ff3b00;
+}
+
+.body {
+    width: 55px;
+    height: 90px;
+
+    background: #151515;
+
+    position: absolute;
+
+    top: 40px;
+    left: 40px;
+
+    border-radius: 20px 20px 10px 10px;
+
+    transform: rotate(-15deg);
+}
+
+.arm {
+    position: absolute;
+
+    width: 70px;
+    height: 13px;
+
+    background: #111;
+
+    border-radius: 10px;
+
+    top: 55px;
+    left: 10px;
+
+    transform: rotate(20deg);
+}
+
+.arm-right {
+    transform: rotate(30deg);
+    left: 60px;
+}
+
+.leg {
+    position: absolute;
+
+    width: 75px;
+    height: 15px;
+
+    background: #111;
+
+    border-radius: 10px;
+
+    top: 115px;
+    left: 25px;
+
+    transform: rotate(35deg);
+}
+
+.leg-right {
+    transform: rotate(10deg);
+    left: 60px;
+}
+
+
+
+/* BIKE BODY */
+
+.bike-body {
+    position: absolute;
+
+    width: 400px;
+    height: 150px;
+
+    left: 0;
+    bottom: 10px;
+}
+
+.bike-seat {
+    position: absolute;
+
+    width: 100px;
+    height: 20px;
+
+    background: #151515;
+
+    border-radius: 30px;
+
+    left: 130px;
+    top: 55px;
+}
+
+.bike-tank {
+    position: absolute;
+
+    width: 120px;
+    height: 65px;
+
+    background:
+        linear-gradient(135deg,#ff4b16,#8d1200);
+
+    border-radius: 50% 20% 40% 20%;
+
+    left: 130px;
+    top: 60px;
+
+    box-shadow:
+        inset -10px -5px 20px rgba(0,0,0,.6),
+        0 0 25px rgba(255,50,0,.25);
+}
+
+.bike-frame {
+    position: absolute;
+
+    width: 230px;
+    height: 15px;
+
+    background: #555;
+
+    left: 75px;
+    top: 100px;
+
+    transform: rotate(-5deg);
+}
+
+.bike-light {
+    position: absolute;
+
+    width: 30px;
+    height: 30px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    right: 10px;
+    top: 70px;
+
+    box-shadow:
+        0 0 20px white,
+        0 0 60px #ff3b00;
+}
+
+.bike-wheel {
+    position: absolute;
+
+    width: 105px;
+    height: 105px;
+
+    border: 12px solid #111;
+
+    border-radius: 50%;
+
+    bottom: 0;
+
+    animation: wheelSpin .35s linear infinite;
+}
+
+.wheel-front {
+    right: 5px;
+}
+
+.wheel-back {
+    left: 45px;
+}
+
+.wheel-inner {
+    width: 100%;
+    height: 100%;
+
+    border: 2px dashed #777;
+
+    border-radius: 50%;
+}
+
+@keyframes wheelSpin {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.bike-exhaust {
+    position: absolute;
+
+    width: 80px;
+    height: 15px;
+
+    background: #333;
+
+    left: 10px;
+    top: 105px;
+
+    border-radius: 20px;
+}
+
+
+
+/* SMOKE */
+
+.smoke {
+    position: absolute;
+
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    background: rgba(150,150,150,.15);
+
+    bottom: 170px;
+    left: 15%;
+
+    animation: smokeMove 2s infinite;
+}
+
+.smoke-two {
+    animation-delay: .6s;
+}
+
+.smoke-three {
+    animation-delay: 1s;
+}
+
+@keyframes smokeMove {
+
+    0% {
+        transform: scale(.5) translate(0,0);
+        opacity: .5;
+    }
+
+    100% {
+        transform: scale(2) translate(-100px,-80px);
+        opacity: 0;
+    }
+}
+
+
+
+/* SPEED LINES */
+
+.speed-lines span {
+    position: absolute;
+
+    width: 100px;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ff3b00
+    );
+
+    right: -100px;
+
+    animation: speedLine 1.5s linear infinite;
+}
+
+.speed-lines span:nth-child(1) {
+    top: 30%;
+}
+
+.speed-lines span:nth-child(2) {
+    top: 45%;
+    animation-delay: .2s;
+}
+
+.speed-lines span:nth-child(3) {
+    top: 60%;
+    animation-delay: .4s;
+}
+
+.speed-lines span:nth-child(4) {
+    top: 70%;
+    animation-delay: .6s;
+}
+
+.speed-lines span:nth-child(5) {
+    top: 35%;
+    animation-delay: .8s;
+}
+
+.speed-lines span:nth-child(6) {
+    top: 80%;
+    animation-delay: 1s;
+}
+
+@keyframes speedLine {
+
+    from {
+        right: -150px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+
+
+/* =========================
+   SCROLL DOWN
+========================= */
+
+.scroll-down {
+    position: absolute;
+
+    bottom: 30px;
+    left: 7%;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.scroll-down div {
+    width: 50px;
+    height: 1px;
+
+    background: #ff3b00;
+
+    animation: scrollLine 1.5s infinite;
+}
+
+@keyframes scrollLine {
+
+    50% {
+        width: 20px;
+    }
+}
+
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    padding: 130px 7%;
+    background: #070707;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.section-heading p {
+    color: #ff3b00;
+    font-size: 11px;
+    letter-spacing: 5px;
+}
+
+.section-heading h2 {
+    font-family: "Orbitron";
+    font-size: clamp(35px,5vw,70px);
+    margin-top: 15px;
+}
+
+.section-heading h2 span {
+    color: #ff3b00;
+}
+
+.heading-line {
+    width: 80px;
+    height: 3px;
+
+    background: #ff3b00;
+
+    margin: 25px auto;
+}
+
+
+
+/* =========================
+   FILTERS
+========================= */
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.filter {
+    padding: 12px 25px;
+
+    border: 1px solid #333;
+
+    background: transparent;
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    transition: .3s;
+}
+
+.filter:hover,
+.filter.active {
+    background: #ff3b00;
+    border-color: #ff3b00;
+}
+
+
+
+/* =========================
+   BIKE GRID
+========================= */
+
+.bike-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+.bike-card {
+    background: #101010;
+
+    border: 1px solid #202020;
+
+    overflow: hidden;
+
+    transition:
+        transform .5s,
+        border .5s;
+
+    transform-style: preserve-3d;
+}
+
+.bike-card:hover {
+    transform:
+        translateY(-15px)
+        rotateX(4deg)
+        rotateY(-4deg);
+
+    border-color: #ff3b00;
+
+    box-shadow:
+        0 25px 60px rgba(255,50,0,.12);
+}
+
+.bike-image {
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+}
+
+.bike-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform .8s,
+        filter .8s;
+}
+
+.bike-card:hover img {
+    transform: scale(1.15);
+    filter: saturate(1.4);
+}
+
+.bike-tag {
+    position: absolute;
+
+    z-index: 2;
+
+    top: 15px;
+    left: 15px;
+
+    background: #ff3b00;
+
+    padding: 7px 12px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+.bike-info {
+    padding: 25px;
+}
+
+.bike-info > p {
+    color: #777;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.bike-info h3 {
+    font-family: "Orbitron";
+    margin: 8px 0 20px;
+}
+
+.bike-specs {
+    display: flex;
+    justify-content: space-between;
+
+    color: #999;
+
+    font-size: 9px;
+}
+
+.bike-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 25px;
+
+    border-top: 1px solid #222;
+
+    padding-top: 20px;
+}
+
+.bike-bottom strong {
+    color: #ff3b00;
+}
+
+.details-btn {
+    background: transparent;
+
+    border: 1px solid #444;
+
+    color: white;
+
+    padding: 8px 15px;
+
+    cursor: pointer;
+
+    font-size: 9px;
+
+    transition: .3s;
+}
+
+.details-btn:hover {
+    background: #ff3b00;
+    border-color: #ff3b00;
+}
+
+
+
+/* =========================
+   SPORTS
+========================= */
+
+.sports-section {
+    min-height: 80vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding: 100px 7%;
+
+    background:
+        linear-gradient(90deg,rgba(0,0,0,.95),rgba(0,0,0,.3)),
+        url("https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=2000&q=80")
+        center/cover fixed;
+
+    overflow: hidden;
+}
+
+.sports-section::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            120deg,
+            transparent 0px,
+            transparent 100px,
+            rgba(255,60,0,.06) 101px,
+            transparent 103px
+        );
+
+    animation: diagonalMove 5s linear infinite;
+}
+
+@keyframes diagonalMove {
+
+    from {
+        transform: translateX(-200px);
+    }
+
+    to {
+        transform: translateX(200px);
+    }
+}
+
+.sports-content {
+    position: relative;
+    z-index: 3;
+
+    max-width: 650px;
+}
+
+.sports-content > p:first-child {
+    color: #ff3b00;
+    letter-spacing: 5px;
+}
+
+.sports-content h2 {
+    font-family: "Orbitron";
+
+    font-size: clamp(45px,7vw,90px);
+
+    line-height: .95;
+
+    margin: 20px 0;
+}
+
+.sports-content h2 span {
+    color: #ff3b00;
+}
+
+.sports-content > p {
+    color: #bbb;
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+}
+
+.speed-number {
+    position: absolute;
+
+    right: 8%;
+    bottom: 5%;
+
+    font-family: "Orbitron";
+
+    font-size: clamp(100px,15vw,220px);
+
+    font-weight: 900;
+
+    color: transparent;
+
+    -webkit-text-stroke: 2px rgba(255,255,255,.15);
+}
+
+.speed-number small {
+    font-size: 18px;
+    -webkit-text-stroke: 0;
+    color: #ff3b00;
+}
+
+
+
+/* =========================
+   CRUISER
+========================= */
+
+.cruiser-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 30px;
+}
+
+.cruiser-card {
+    height: 550px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.cruiser-card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 1s;
+}
+
+.cruiser-card:hover img {
+    transform: scale(1.12);
+}
+
+.cruiser-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent 20%,
+            rgba(0,0,0,.9)
+        );
+}
+
+.cruiser-content {
+    position: absolute;
+
+    z-index: 3;
+
+    bottom: 40px;
+    left: 40px;
+}
+
+.cruiser-content p {
+    color: #ff3b00;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+}
+
+.cruiser-content h3 {
+    font-family: "Orbitron";
+
+    font-size: 35px;
+
+    margin: 10px 0 25px;
+}
+
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-section {
+    padding: 140px 7%;
+
+    background: #090909;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 100px;
+
+    align-items: center;
+}
+
+.about-image {
+    height: 600px;
+
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter: grayscale(1);
+
+    transition: 1s;
+}
+
+.about-image:hover img {
+    filter: grayscale(0);
+}
+
+.about-circle {
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    border-radius: 50%;
+
+    background: #ff3b00;
+
+    right: -50px;
+    bottom: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    font-family: "Orbitron";
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    animation: circleFloat 3s infinite alternate;
+}
+
+@keyframes circleFloat {
+
+    to {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+.about-content > p:first-child {
+    color: #ff3b00;
+    letter-spacing: 4px;
+    font-size: 11px;
+}
+
+.about-content h2 {
+    font-family: "Orbitron";
+
+    font-size: clamp(40px,5vw,70px);
+
+    line-height: 1;
+
+    margin: 20px 0 30px;
+}
+
+.about-content h2 span {
+    color: #ff3b00;
+}
+
+.about-content > p {
+    color: #aaa;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.stats {
+    display: flex;
+    gap: 50px;
+
+    margin-top: 45px;
+}
+
+.stats strong {
+    display: block;
+
+    color: #ff3b00;
+
+    font-family: "Orbitron";
+
+    font-size: 35px;
+}
+
+.stats span {
+    color: #777;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-section {
+    padding: 130px 7%;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,60,0,.1),
+            transparent 40%
+        ),
+        #050505;
+}
+
+.ride-form {
+    max-width: 900px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 25px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-group label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #888;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+
+    padding: 18px;
+
+    background: #111;
+
+    border: 1px solid #292929;
+
+    color: white;
+
+    outline: none;
+
+    transition: .3s;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #ff3b00;
+
+    box-shadow:
+        0 0 20px rgba(255,60,0,.1);
+}
+
+.submit-btn {
+    grid-column: 1/-1;
+
+    margin-top: 20px;
+}
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #020202;
+
+    padding: 60px 7%;
+
+    text-align: center;
+
+    border-top: 1px solid #151515;
+}
+
+.footer-logo {
+    font-family: "Orbitron";
+
+    font-size: 35px;
+
+    font-weight: 900;
+}
+
+footer p {
+    color: #777;
+    margin: 10px;
+}
+
+.socials {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    margin: 25px;
+}
+
+.socials a {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #333;
+
+    transition: .3s;
+}
+
+.socials a:hover {
+    background: #ff3b00;
+    transform: translateY(-5px);
+}
+
+.copyright {
+    font-size: 10px;
+}
+
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 8000;
+
+    background: rgba(0,0,0,.85);
+
+    backdrop-filter: blur(10px);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .4s;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-box {
+    width: 90%;
+    max-width: 500px;
+
+    background: #101010;
+
+    border: 1px solid #333;
+
+    padding: 50px;
+
+    text-align: center;
+
+    position: relative;
+
+    transform: translateY(50px) scale(.9);
+
+    transition: .4s;
+}
+
+.modal.show .modal-box {
+    transform: translateY(0) scale(1);
+}
+
+.modal-close {
+    position: absolute;
+
+    right: 20px;
+    top: 15px;
+
+    background: none;
+
+    border: 0;
+
+    color: white;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+.modal-icon {
+    font-size: 60px;
+
+    margin-bottom: 20px;
+
+    animation: bikeFloat 2s infinite alternate;
+}
+
+@keyframes bikeFloat {
+
+    to {
+        transform: translateY(-10px) rotate(-3deg);
+    }
+}
+
+.modal-box > p:first-of-type {
+    color: #ff3b00;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+.modal-box h2 {
+    font-family: "Orbitron";
+
+    margin: 15px 0;
+
+    font-size: 30px;
+}
+
+.modal-box p {
+    color: #aaa;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+}
+
+
+
+/* =========================
+   TOAST
+========================= */
+
+.toast {
+    position: fixed;
+
+    bottom: 30px;
+    right: 30px;
+
+    background: #ff3b00;
+
+    padding: 18px 25px;
+
+    z-index: 9000;
+
+    transform: translateX(150%);
+
+    transition: .5s;
+
+    font-size: 12px;
+}
+
+.toast.show {
+    transform: translateX(0);
+}
+
+
+
+/* =========================
+   TOP BUTTON
+========================= */
+
+#topBtn {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border: 1px solid #ff3b00;
+
+    background: #111;
+
+    color: white;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .3s;
+
+    z-index: 4000;
+}
+
+#topBtn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#topBtn:hover {
+    background: #ff3b00;
+}
+
+
+
+/* =========================
+   REVEAL ANIMATION
+========================= */
+
+.reveal {
+    opacity: 0;
+
+    transform:
+        translateY(70px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1000px) {
+
+    .bike-grid {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .about-section {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image {
+        height: 450px;
+    }
+
+}
+
+
+@media(max-width:700px) {
+
+    .navbar {
+        padding: 20px 5%;
+    }
+
+    .navbar nav {
+
+        position: absolute;
+
+        top: 80px;
+        left: 5%;
+        right: 5%;
+
+        background: rgba(10,10,10,.97);
+
+        flex-direction: column;
+
+        padding: 30px;
+
+        display: none;
+
+        border: 1px solid #222;
+    }
+
+    .navbar nav.show {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .hero-content {
+        padding: 160px 7% 0;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+    .bike-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cruiser-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cruiser-card {
+        height: 400px;
+    }
+
+    .about-section {
+        padding: 90px 7%;
+        gap: 50px;
+    }
+
+    .about-image {
+        height: 400px;
+    }
+
+    .stats {
+        gap: 20px;
+    }
+
+    .stats strong {
+        font-size: 25px;
+    }
+
+    .ride-form {
+        grid-template-columns: 1fr;
+    }
+
+    .submit-btn {
+        grid-column: auto;
+    }
+
+    .cursor,
+    .cursor-follower {
+        display: none;
+    }
+
+    .rider-bike {
+        transform: scale(.75);
+    }
+
+}

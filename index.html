@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RIDE X | Premium Bike Showroom</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+    <div class="loader-bike">🏍️</div>
+    <h2>RIDE X</h2>
+    <div class="loader-line">
+        <span></span>
+    </div>
+    <p>STARTING ENGINE...</p>
+</div>
+
+
+<!-- CURSOR -->
+<div class="cursor"></div>
+<div class="cursor-follower"></div>
+
+
+<!-- NAVBAR -->
+<header class="navbar">
+
+    <div class="logo">
+        RIDE<span>X</span>
+    </div>
+
+    <nav id="navMenu">
+
+        <a href="#home">Home</a>
+        <a href="#bikes">Bikes</a>
+        <a href="#sports">Sports</a>
+        <a href="#cruisers">Cruisers</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+    <button class="menu-btn" id="menuBtn">
+        ☰
+    </button>
+
+</header>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <!-- Background -->
+    <div class="hero-grid"></div>
+    <div class="stars"></div>
+
+    <div class="hero-content">
+
+        <p class="hero-small">WELCOME TO THE FUTURE OF RIDING</p>
+
+        <h1>
+            RIDE
+            <span>BEYOND</span>
+            LIMITS
+        </h1>
+
+        <p class="hero-description">
+            Discover powerful machines engineered for speed,
+            freedom and unforgettable adventures.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#bikes" class="btn primary-btn">
+                EXPLORE BIKES
+            </a>
+
+            <a href="#contact" class="btn outline-btn">
+                BOOK TEST RIDE
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- RIDING SCENE -->
+    <div class="ride-scene">
+
+        <div class="mountains mountain-one"></div>
+        <div class="mountains mountain-two"></div>
+
+        <div class="moon"></div>
+
+        <div class="speed-lines">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="rider-bike">
+
+            <!-- Rider silhouette -->
+            <div class="rider">
+
+                <div class="helmet"></div>
+
+                <div class="body"></div>
+
+                <div class="arm arm-left"></div>
+                <div class="arm arm-right"></div>
+
+                <div class="leg leg-left"></div>
+                <div class="leg leg-right"></div>
+
+            </div>
+
+
+            <!-- Bike -->
+            <div class="bike-body">
+
+                <div class="bike-seat"></div>
+
+                <div class="bike-tank"></div>
+
+                <div class="bike-frame"></div>
+
+                <div class="bike-light"></div>
+
+                <div class="bike-wheel wheel-front">
+                    <div class="wheel-inner"></div>
+                </div>
+
+                <div class="bike-wheel wheel-back">
+                    <div class="wheel-inner"></div>
+                </div>
+
+                <div class="bike-exhaust"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Smoke -->
+        <div class="smoke smoke-one"></div>
+        <div class="smoke smoke-two"></div>
+        <div class="smoke smoke-three"></div>
+
+
+        <!-- Road -->
+        <div class="road">
+
+            <div class="road-lines">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="scroll-down">
+        <span>SCROLL</span>
+        <div></div>
+    </div>
+
+</section>
+
+
+
+<!-- FEATURED BIKES -->
+<section class="section" id="bikes">
+
+    <div class="section-heading reveal">
+
+        <p>OUR COLLECTION</p>
+
+        <h2>
+            FEATURED
+            <span>BIKES</span>
+        </h2>
+
+        <div class="heading-line"></div>
+
+    </div>
+
+
+    <!-- FILTER -->
+    <div class="filters reveal">
+
+        <button class="filter active" data-filter="all">
+            ALL
+        </button>
+
+        <button class="filter" data-filter="sports">
+            SPORTS
+        </button>
+
+        <button class="filter" data-filter="cruiser">
+            CRUISER
+        </button>
+
+        <button class="filter" data-filter="adventure">
+            ADVENTURE
+        </button>
+
+    </div>
+
+
+    <div class="bike-grid">
+
+
+        <!-- BIKE 1 -->
+        <article class="bike-card reveal" data-category="sports">
+
+            <div class="bike-image">
+
+                <span class="bike-tag">SPORTS</span>
+
+                <img src="sports.avif">
+
+                <div class="image-glow"></div>
+
+            </div>
+
+            <div class="bike-info">
+
+                <p>RDX SERIES</p>
+
+                <h3>RAPTOR X1</h3>
+
+                <div class="bike-specs">
+
+                    <span>998 CC</span>
+                    <span>210 HP</span>
+                    <span>299 KM/H</span>
+
+                </div>
+
+                <div class="bike-bottom">
+
+                    <strong>₹18.99 L</strong>
+
+                    <button class="details-btn"
+                            data-bike="Raptor X1">
+                        VIEW
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- BIKE 2 -->
+        <article class="bike-card reveal" data-category="sports">
+
+            <div class="bike-image">
+
+                <span class="bike-tag">SPORTS</span>
+
+                <img src="spt.avif">
+
+            </div>
+
+            <div class="bike-info">
+
+                <p>RX SERIES</p>
+
+                <h3>Thunder R9</h3>
+
+                <div class="bike-specs">
+
+                    <span>890 CC</span>
+                    <span>185 HP</span>
+                    <span>280 KM/H</span>
+
+                </div>
+
+                <div class="bike-bottom">
+
+                    <strong>₹16.49 L</strong>
+
+                    <button class="details-btn"
+                            data-bike="Thunder R9">
+                        VIEW
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- BIKE 3 -->
+        <article class="bike-card reveal" data-category="cruiser">
+
+            <div class="bike-image">
+
+                <span class="bike-tag">CRUISER</span>
+
+                <img src="cruiser.avif">
+
+            </div>
+
+            <div class="bike-info">
+
+                <p>LEGEND SERIES</p>
+
+                <h3>Iron Commander</h3>
+
+                <div class="bike-specs">
+
+                    <span>1200 CC</span>
+                    <span>95 HP</span>
+                    <span>220 KM/H</span>
+
+                </div>
+
+                <div class="bike-bottom">
+
+                    <strong>₹21.99 L</strong>
+
+                    <button class="details-btn"
+                            data-bike="Iron Commander">
+                        VIEW
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- BIKE 4 -->
+        <article class="bike-card reveal" data-category="adventure">
+
+            <div class="bike-image">
+
+                <span class="bike-tag">ADVENTURE</span>
+
+                <img src="adv.jpg">
+
+            </div>
+
+            <div class="bike-info">
+
+                <p>EXPLORER SERIES</p>
+
+                <h3>Himalayan 450</h3>
+
+                <div class="bike-specs">
+
+                    <span>900 CC</span>
+                    <span>110 HP</span>
+                    <span>210 KM/H</span>
+
+                </div>
+
+                <div class="bike-bottom">
+
+                    <strong>₹15.99 L</strong>
+
+                    <button class="details-btn"
+                            data-bike="Trail Master">
+                        VIEW
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- SPORTS SECTION -->
+<section class="sports-section" id="sports">
+
+    <div class="sports-overlay"></div>
+
+    <div class="sports-content reveal">
+
+        <p>BUILT FOR SPEED</p>
+
+        <h2>
+            FEEL THE
+            <span>ADRENALINE</span>
+        </h2>
+
+        <p>
+            High-performance engines, aerodynamic designs
+            and advanced technology designed for riders
+            who refuse to slow down.
+        </p>
+
+        <a href="#bikes" class="btn primary-btn">
+            VIEW SPORTS BIKES
+        </a>
+
+    </div>
+
+    <div class="speed-number">
+        299
+        <small>KM/H</small>
+    </div>
+
+</section>
+
+
+
+<!-- CRUISER SECTION -->
+<section class="section cruiser-section" id="cruisers">
+
+    <div class="section-heading reveal">
+
+        <p>LONG DISTANCE FREEDOM</p>
+
+        <h2>
+            CRUISER &
+            <span>ADVENTURE</span>
+        </h2>
+
+        <div class="heading-line"></div>
+
+    </div>
+
+
+    <div class="cruiser-grid">
+
+        <div class="cruiser-card reveal">
+
+            <img src="ind.jpg">
+
+            <div class="cruiser-content">
+
+                <p>01 / CRUISER</p>
+
+                <h3>ROAD KING</h3>
+
+                <button class="btn outline-btn">
+                    DISCOVER
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="cruiser-card reveal">
+
+            <img src="adve.jpg">
+
+            <div class="cruiser-content">
+
+                <p>02 / ADVENTURE</p>
+
+                <h3>WILD EXPLORER</h3>
+
+                <button class="btn outline-btn">
+                    DISCOVER
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+
+    <div class="about-image reveal">
+
+        <img src="about.avif">
+
+        <div class="about-circle">
+            RIDE<br>
+            YOUR<br>
+            STORY
+        </div>
+
+    </div>
+
+
+    <div class="about-content reveal">
+
+        <p>ABOUT RIDE X</p>
+
+        <h2>
+            NOT JUST A
+            <span>MACHINE.</span>
+        </h2>
+
+        <p>
+            RIDE X is built around one simple idea:
+            every ride should feel unforgettable.
+        </p>
+
+        <p>
+            From high-performance sports machines to
+            long-distance cruisers, our collection is
+            designed for riders who want technology,
+            style and performance.
+        </p>
+
+
+        <div class="stats">
+
+            <div>
+                <strong class="counter" data-target="25">0</strong>
+                <span>BIKE MODELS</span>
+            </div>
+
+            <div>
+                <strong class="counter" data-target="15">0</strong>
+                <span>YEARS EXPERIENCE</span>
+            </div>
+
+            <div>
+                <strong class="counter" data-target="8500">0</strong>
+                <span>HAPPY RIDERS</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+
+    <div class="section-heading reveal">
+
+        <p>START YOUR JOURNEY</p>
+
+        <h2>
+            BOOK A
+            <span>TEST RIDE</span>
+        </h2>
+
+        <div class="heading-line"></div>
+
+    </div>
+
+
+    <form id="rideForm" class="ride-form reveal">
+
+        <div class="input-group">
+
+            <label>YOUR NAME</label>
+
+            <input type="text"
+                   id="name"
+                   placeholder="Enter your name"
+                   required>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>EMAIL</label>
+
+            <input type="email"
+                   id="email"
+                   placeholder="Enter your email"
+                   required>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>PHONE</label>
+
+            <input type="tel"
+                   id="phone"
+                   placeholder="Enter your phone number"
+                   required>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>SELECT BIKE</label>
+
+            <select id="bike">
+
+                <option>Raptor X1</option>
+                <option>Thunder R9</option>
+                <option>Iron Commander</option>
+                <option>Trail Master</option>
+
+            </select>
+
+        </div>
+
+
+        <button class="btn primary-btn submit-btn"
+                type="submit">
+
+            BOOK TEST RIDE →
+
+        </button>
+
+    </form>
+
+</section>
+
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-logo">
+        RIDE<span>X</span>
+    </div>
+
+    <p>
+        Ride Beyond Limits.
+    </p>
+
+    <div class="socials">
+
+        <a href="#">IG</a>
+        <a href="#">YT</a>
+        <a href="#">FB</a>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 RIDE X. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+
+<!-- BIKE MODAL -->
+<div class="modal" id="bikeModal">
+
+    <div class="modal-box">
+
+        <button class="modal-close" id="modalClose">
+            ×
+        </button>
+
+        <div class="modal-icon">
+            🏍️
+        </div>
+
+        <p>RIDE X PERFORMANCE</p>
+
+        <h2 id="modalTitle">
+            RAPTOR X1
+        </h2>
+
+        <p>
+            Experience advanced engineering,
+            aggressive styling and next-generation
+            performance.
+        </p>
+
+        <button class="btn primary-btn">
+            BOOK TEST RIDE
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+    Test ride request submitted successfully!
+</div>
+
+
+<!-- BACK TO TOP -->
+<button id="topBtn">
+    ↑
+</button>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
